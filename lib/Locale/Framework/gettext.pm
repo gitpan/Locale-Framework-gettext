@@ -4,7 +4,7 @@ use strict;
 use Locale::gettext;
 use POSIX;
 
-our $VERSION='0.03';
+our $VERSION='0.04';
 
 sub new {
   my $class=shift;
@@ -306,15 +306,19 @@ return "";
 }
 
 1;
+__END__
 
 =head1 NAME
 
-Locale::Framework::gettext, a Locale::gettext backend for Locale::Framework
+Locale::Framework::gettext, a Locale::gettext backend for Locale::Framework.
 
 =head1 ABSTRACT
 
 This module provides a Locale::gettext backend for the Locale::Framework
 internationalization module.
+
+.
+
 
 =head1 SYNOPSIS
 
@@ -368,3 +372,4 @@ This library is free software; you can redistribute it and/or modify
 it under LGPL terms.
 
 =cut
+
