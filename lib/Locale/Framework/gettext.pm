@@ -4,7 +4,7 @@ use strict;
 use Locale::gettext;
 use POSIX;
 
-our $VERSION='0.01';
+our $VERSION='0.03';
 
 sub new {
   my $class=shift;
@@ -15,7 +15,13 @@ sub new {
   $self->{"path"}=$local_path_prefix;
   $self->{"catalog"}=$catalog;
 
-  $self->{"lang"}=$ENV{"LANG"} | "en_GB";
+  $self->{"lang"}=$ENV{"LANG"};
+  if (not defined $self->{"lang"}) {
+    $self->{"lang"}="en_GB";
+  }
+  elsif ($self->{"lang"} eq "") {
+    $self->{"lang"}="en_GB";
+  }
   my $lang=$self->{"lang"};
 
   setlocale(LC_MESSAGES,$lang);
@@ -333,7 +339,7 @@ to the place where your catalog can be found. For locale/language 'nl_NL' the
 catalog will be fetched from C<$catalogdir_prefix/nl_NL/LC_MESSAGES/$catalog>.
 
 C<$catalogdir_prefix> may be empty, in which case the catalog is searched
-in the default catalogs.
+at the default catalog locations.
 
 =head2 C<translate(language,text)> --E<gt> string
 

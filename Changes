@@ -1,4 +1,8 @@
 Revision history for Locale::Framework::gettext
 
+0.03 Bug fix against perl 5.9.x
+
+0.02 Documentation change.
+
 0.01  Initial version
 
